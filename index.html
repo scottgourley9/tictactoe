@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="ticTacToe">
+  <head>
+    <meta charset="utf-8">
+    <title>Tick Tack Toe</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/game.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav>
+      <li ui-sref="home">Home</li>
+      <li ui-sref="game">Game</li>
+      <li>About</li>
+    </nav>
+    <ui-view></ui-view>
+
+
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"type="text/javascript"></script>
+  <script src="js/app.js"type="text/javascript"></script>
+  <script src="js/controllers/homeCtrl.js"type="text/javascript"></script>
+  <script src="js/controllers/gameCtrl.js"type="text/javascript"></script>
+  <script src="js/directives/boxDirective.js"type="text/javascript"></script>
+
+  </body>
+</html>
