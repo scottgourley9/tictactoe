@@ -1,13 +1,14 @@
 angular.module('ticTacToe').directive('boxDirective', function(){
 
-  var winningCombos = [[1, 2, 3],
-    [1, 4, 7],
-    [3, 6, 9],
-    [1, 5, 9],
-    [3, 5, 7],
-    [7, 8, 9],
-    [2, 5, 8],
-    [4, 5, 6]]
+    var winningCombos = [[1, 2, 3],
+      [1, 4, 7],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7],
+      [7, 8, 9],
+      [2, 5, 8],
+      [4, 5, 6]]
+
     var available = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     var userMoves = []
     var computerMoves = []
@@ -17,10 +18,12 @@ angular.module('ticTacToe').directive('boxDirective', function(){
     var three;
     var nextMove;
 
+    var winningCombosTwo = [].concat(winningCombos)
+
     var checkForWinnerComputer = function(movesArr){
-    for(var j = 0; j < winningCombos.length; j++){
+    for(var j = 0; j < winningCombosTwo.length; j++){
           var count = 0;
-          var val = winningCombos[j]
+          var val = winningCombosTwo[j]
           for(var i = 0; i < movesArr.length; i++){
             if(val.indexOf(movesArr[i]) !== -1){
               count++
@@ -63,18 +66,21 @@ angular.module('ticTacToe').directive('boxDirective', function(){
       computerMoves.push(nextMove)
       available.splice(available.indexOf(nextMove), 1)
       nextMove = false
+      checkForWinnerComputer(computerMoves)
     }
     else {
       if(available.length === 8){
         if(available.indexOf(5) !== -1){
           $('[boxnum=' + 5 + ']').css({'background': 'blue'})
           computerMoves.push(5)
+          checkForWinnerComputer(computerMoves)
           available.splice(available.indexOf(5), 1)
         }
         else {
           var num = Math.floor(Math.random() * 4)
           $('[boxnum=' + corners[num] + ']').css({'background': 'blue'})
           computerMoves.push(corners[num])
+          checkForWinnerComputer(computerMoves)
           available.splice(available.indexOf(corners[num]), 1)
         }
       }
@@ -93,6 +99,7 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           var lastNum = Math.floor(Math.random() * available.length)
           $('[boxnum=' + available[lastNum] + ']').css({'background': 'blue'})
           computerMoves.push(available[lastNum])
+          checkForWinnerComputer(computerMoves)
           available.splice(available.indexOf(available[lastNum]), 1)
           return
         }
@@ -101,12 +108,27 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           theOne = k[0]
         }
         else{
+          console.log(p);
           theOne = p[0]
+        }
+        if(userMoves.length === 2 && userMoves.indexOf(6) !== -1 && userMoves.indexOf(8) !== -1){
+          for(var i = theOne.length - 1; i >= 0; i--){
+            if(available.indexOf(theOne[i]) !== -1){
+              $('[boxnum=' + theOne[i] + ']').css({'background': 'blue'})
+              computerMoves.push(theOne[i])
+              checkForWinnerComputer(computerMoves)
+              available.splice(available.indexOf(theOne[i]), 1)
+                 var obj = checkForWinner(computerMoves)
+                 nextMove = obj.two
+              return
+            }
+          }
         }
         for(var i = 0; i < theOne.length; i++){
           if(available.indexOf(theOne[i]) !== -1){
             $('[boxnum=' + theOne[i] + ']').css({'background': 'blue'})
             computerMoves.push(theOne[i])
+            checkForWinnerComputer(computerMoves)
             available.splice(available.indexOf(theOne[i]), 1)
                var obj = checkForWinner(computerMoves)
                nextMove = obj.two
@@ -129,8 +151,7 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           return
         }
         var checkObject = checkForWinner(userMoves)
-        if(checkObject.two && computerMoves.indexOf(checkObject.two) === -1 && available.indexOf(nextMove) === -1){
-          //check to see which number box I need to block
+        if(checkObject.two && computerMoves.indexOf(checkObject.two) === -1 && available.indexOf(nextMove) === -1 && available.indexOf(checkObject.two) !== -1){
           $('[boxnum=' + checkObject.two + ']').css({'background': 'blue'})
           computerMoves.push(checkObject.two)
           available.splice(available.indexOf(checkObject.two), 1)
