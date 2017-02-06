@@ -12,8 +12,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body ng-controller="gameCtrl">
+  <body ng-controller="gameCtrl" style="background: linear-gradient(white, {{color}}); background-repeat: no-repeat;
+  background-size: 100vw 100vh;">
     <h1>Tic Tac Toe</h1>
+    <p>Start the game by clicking on your first move.</p>
     <section class="ticBody">
       <div class="ticRow">
         <div boxNum='1' box-directive class="ticBox"></div>

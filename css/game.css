@@ -7,6 +7,8 @@
   width: 700px;
   height: 400px;
   z-index: 10;
+  background-color: black;
+  border-radius: 5px;
 }
 .ticRow {
   display: flex;
@@ -23,7 +25,7 @@
   width: 120px;
   height: 120px;
   /*border: 2px solid #575757;*/
-  background-image: url('https://img.clipartfest.com/b86508f04dc503f81649ccd951473767_icon-clip-art-at-clker-com-x-clipart-transparent_600-600.png');
+  background-image: url('http://vignette4.wikia.nocookie.net/wawanakwacentral/images/b/bc/Xmark.png');
   background-size: cover;
   background-repeat: no-repeat;
   display: none;
@@ -34,7 +36,7 @@
   width: 120px;
   height: 120px;
   /*border: 2px solid #575757;*/
-  background-image: url('http://www.iconsdb.com/icons/download/royal-blue/circle-dashed-4-512.png');
+  background-image: url('http://www.clipartbest.com/cliparts/9i4/ek9/9i4ek99RT.png');
   background-size: cover;
   background-repeat: no-repeat;
   display: none;
@@ -47,16 +49,17 @@ button {
   transition-duration: 0.4s;
   margin-top: 15px;
   font-size: 15px;
-  background-color: #fff;
-  color: navy;
-  border: 2px solid navy;
+  background-color: #010180;
+  color: white;
+  border: 2px solid #010180;
   padding: 10px 25px 10px 25px;
+  border-radius: 5px;
 }
 button:hover {
   cursor: pointer;
-  background-color: navy; /* Green */
-  color: white;
-  border: 2px solid navy;
+  background-color: #fff; /* Green */
+  color: #010180;
+  border: 2px solid #010180;
 }
 
 .grid {
@@ -69,13 +72,15 @@ button:hover {
   width: 5px;
   height: 384px;
   position: absolute;
-  background-color: black;
+  background-color: #fff;
+  z-index: 11;
 }
 .bottom {
   width: 386px;
   height: 5px;
   position: absolute;
-  background-color: black;
+  background-color: #fff;
+  z-index: 11;
 }
 .barOne {
   margin-left: 125.5px;
