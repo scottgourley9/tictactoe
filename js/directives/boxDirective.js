@@ -35,7 +35,7 @@ angular.module('ticTacToe').directive('boxDirective', function(){
                   swal({
                     title: "Computer Wins...",
                     showCancelButton: false,
-                    confirmButtonColor: "navy",
+                    confirmButtonColor: "#010180",
                     confirmButtonText: "Okay",
                     closeOnConfirm: false
                   },
@@ -104,13 +104,11 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           }
         }
         else {
-          var p;
           var k = [];
           for (var i = 0; i < $scope.computerMoves.length; i++) {
-            p = winningCombos.filter(function(v){
+            winningCombos.forEach(function(v){
              if(v.indexOf($scope.computerMoves[i]) !== -1 && v.indexOf($scope.userMoves[i]) === -1){
                k.push(v)
-               return v
              }
            })
           }
@@ -124,41 +122,21 @@ angular.module('ticTacToe').directive('boxDirective', function(){
                   count++
                   if(count === 2){
                     if(i === 2 || i === 3){
-                      if(!p.length){
                         theOne = k[1]
-                      }
-                      else{
-                        theOne = p[1]
-                      }
                     }
                     if(!theOne){
-                      if(!p.length ){
                         theOne = k[k.length - 1]
-                      }
-                      else{
-                        theOne = p[p.length - 1]
-                      }
                     }
                   }
                 }
               }
             }
             if(!theOne){
-              if(!p.length){
                 theOne = k[0]
-              }
-              else{
-                theOne = p[0]
-              }
             }
           }
           else {
-            if(!p.length){
               theOne = k[0]
-            }
-            else{
-              theOne = p[0]
-            }
           }
           if($scope.userMoves.length === 2 && $scope.userMoves.indexOf(6) !== -1 && $scope.userMoves.indexOf(8) !== -1){
             for(var i = theOne.length - 1; i >= 0; i--){
@@ -205,7 +183,7 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           swal({
             title: "It's a Draw!",
             showCancelButton: false,
-            confirmButtonColor: "navy",
+            confirmButtonColor: "#010180",
             confirmButtonText: "Okay",
             closeOnConfirm: false
           },
