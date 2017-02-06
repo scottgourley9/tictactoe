@@ -61,8 +61,8 @@ angular.module('ticTacToe').directive('boxDirective', function(){
                 if(count === 2){
                   if($scope.available.indexOf(val[starting]) !== -1){
                     two = val[starting]
-                    winningCombos.splice(j, 1)
-                    j--
+                    // winningCombos.splice(j, 1)
+                    // j--
                   }
 
                 }
@@ -116,18 +116,28 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           }
           var theOne
           if($scope.userMoves.length === 2){
-            var oppCorners = [[3, 7], [1, 9]]
+            var oppCorners = [[3, 7], [1, 9], [7, 6], [4, 9]]
             for(var i = 0; i < oppCorners.length; i++){
               count=0
               for(var j = 0; j < $scope.userMoves.length; j++){
                 if(oppCorners[i].indexOf($scope.userMoves[j]) !== -1){
                   count++
                   if(count === 2){
-                    if(!p.length){
-                      theOne = k[k.length - 1]
+                    if(i === 2 || i === 3){
+                      if(!p.length){
+                        theOne = k[1]
+                      }
+                      else{
+                        theOne = p[1]
+                      }
                     }
-                    else{
-                      theOne = p[p.length - 1]
+                    if(!theOne){
+                      if(!p.length ){
+                        theOne = k[k.length - 1]
+                      }
+                      else{
+                        theOne = p[p.length - 1]
+                      }
                     }
                   }
                 }
@@ -219,14 +229,21 @@ angular.module('ticTacToe').directive('boxDirective', function(){
         }
         else {
           if(scope.available.length < 3){
-            var lastNum = Math.floor(Math.random() * scope.available.length)
-            $('[boxnum=' + scope.available[lastNum] + ']').css({'display': 'none'})
-            $('[cover2=' + scope.available[lastNum] + ']').css({'display': 'inherit'})
-
-            scope.computerMoves.push(scope.available[lastNum])
-            scope.available.splice(scope.available.indexOf(scope.available[lastNum]), 1)
+            console.log('this is happening');
+            var lastOne = scope.checkForWinner(scope.computerMoves)
+            if(scope.available.indexOf(lastOne.two) === -1){
+              $('[boxnum=' + scope.available[0] + ']').css({'display': 'none'})
+              $('[cover2=' + scope.available[0] + ']').css({'display': 'inherit'})
+              scope.computerMoves.push(scope.available[0])
+              scope.available.splice(scope.available.indexOf(scope.available[0]), 1)
+              scope.checkForWinnerComputer(scope.computerMoves)
+              return
+            }
+            $('[boxnum=' + lastOne.two + ']').css({'display': 'none'})
+            $('[cover2=' + lastOne.two + ']').css({'display': 'inherit'})
+            scope.computerMoves.push(lastOne.two)
+            scope.available.splice(scope.available.indexOf(lastOne.two), 1)
             scope.checkForWinnerComputer(scope.computerMoves)
-
             return
           }
         }
