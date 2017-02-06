@@ -4,6 +4,7 @@ angular.module('ticTacToe').directive('boxDirective', function(){
   return {
     restrict: 'A',
     controller: function($scope){
+
       var winningCombos = [[1, 2, 3],
         [1, 4, 7],
         [3, 6, 9],
@@ -205,7 +206,7 @@ angular.module('ticTacToe').directive('boxDirective', function(){
         }
         var checkObject = scope.checkForWinner(scope.userMoves)
         if(checkObject.two && scope.computerMoves.indexOf(checkObject.two) === -1 && scope.available.indexOf(scope.nextMove) === -1 && scope.available.indexOf(checkObject.two) !== -1){
-          
+
           $('[boxnum=' + checkObject.two + ']').css({'display': 'none'})
           $('[cover2=' + checkObject.two + ']').css({'display': 'inherit'})
           scope.computerMoves.push(checkObject.two)
@@ -213,6 +214,8 @@ angular.module('ticTacToe').directive('boxDirective', function(){
           checkObject.two = false;
           var obj = scope.checkForWinner(scope.computerMoves)
           scope.nextMove = obj.two
+          scope.checkForWinnerComputer(scope.computerMoves)
+
         }
         else {
           if(scope.available.length < 3){
@@ -222,6 +225,8 @@ angular.module('ticTacToe').directive('boxDirective', function(){
 
             scope.computerMoves.push(scope.available[lastNum])
             scope.available.splice(scope.available.indexOf(scope.available[lastNum]), 1)
+            scope.checkForWinnerComputer(scope.computerMoves)
+
             return
           }
         }
