@@ -2,30 +2,64 @@
 <html ng-app="ticTacToe">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tick Tack Toe</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="alerts/sweetalert.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
-    <nav>
-      <li ui-sref="home">Home</li>
-      <li ui-sref="game">Game</li>
-      <li>About</li>
-    </nav>
-    <ui-view></ui-view>
+  <body ng-controller="gameCtrl">
+    <h1>Tic Tac Toe</h1>
+    <section class="ticBody">
+      <div class="ticRow">
+        <div boxNum='1' box-directive class="ticBox"></div>
+        <div cover='1' class="coverBox animated fadeIn"></div>
+        <div cover2='1' class="coverBox2 animated fadeIn"></div>
+        <div boxNum='2' box-directive class="ticBox"></div>
+        <div cover='2' class="coverBox animated fadeIn"></div>
+        <div cover2='2' class="coverBox2 animated fadeIn"></div>
+        <div boxNum='3' box-directive class="ticBox"></div>
+        <div cover='3' class="coverBox animated fadeIn"></div>
+        <div cover2='3' class="coverBox2 animated fadeIn"></div>
+      </div>
+      <div class="ticRow">
+        <div boxNum='4' box-directive class="ticBox"></div>
+        <div cover='4' class="coverBox animated fadeIn"></div>
+        <div cover2='4' class="coverBox2 animated fadeIn"></div>
+        <div boxNum='5' box-directive class="ticBox"></div>
+        <div cover='5' class="coverBox animated fadeIn"></div>
+        <div cover2='5' class="coverBox2 animated fadeIn"></div>
+        <div boxNum='6' box-directive class="ticBox"></div>
+        <div cover='6' class="coverBox animated fadeIn"></div>
+        <div cover2='6' class="coverBox2 animated fadeIn"></div>
+      </div>
+      <div class="ticRow">
+        <div boxNum='7' box-directive class="ticBox"></div>
+        <div cover='7' class="coverBox animated fadeIn"></div>
+        <div cover2='7' class="coverBox2 animated fadeIn"></div>
+        <div boxNum='8' box-directive class="ticBox"></div>
+        <div cover='8' class="coverBox animated fadeIn"></div>
+        <div cover2='8' class="coverBox2 animated fadeIn"></div>
+        <div boxNum='9' box-directive class="ticBox"></div>
+        <div cover='9' class="coverBox animated fadeIn"></div>
+        <div cover2='9' class="coverBox2 animated fadeIn"></div>
+      </div>
+    </section>
+    <button type="button" name="button" ng-click="reset()">Reset</button>
+
 
 
 
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"type="text/javascript"></script>
   <script src="js/app.js"type="text/javascript"></script>
-  <script src="js/controllers/homeCtrl.js"type="text/javascript"></script>
   <script src="js/controllers/gameCtrl.js"type="text/javascript"></script>
   <script src="js/directives/boxDirective.js"type="text/javascript"></script>
+  <script src="alerts/sweetalert.min.js"type="text/javascript"></script>
 
   </body>
 </html>
