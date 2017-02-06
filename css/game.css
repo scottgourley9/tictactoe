@@ -3,13 +3,89 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  margin-top: 10px;
+  width: 700px;
+  height: 400px;
+  z-index: 10;
 }
 .ticRow {
   display: flex;
 }
 .ticBox {
-  width: 100px;
-  height: 100px;
-  border: 2px solid black;
+  width: 120px;
+  height: 120px;
+  /*border: 2px solid #575757;*/
+  margin: 5px;
+}
+.coverBox {
+
+  margin: 5px;
+  width: 120px;
+  height: 120px;
+  /*border: 2px solid #575757;*/
+  background-image: url('https://img.clipartfest.com/b86508f04dc503f81649ccd951473767_icon-clip-art-at-clker-com-x-clipart-transparent_600-600.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
+}
+.coverBox2 {
+
+  margin: 5px;
+  width: 120px;
+  height: 120px;
+  /*border: 2px solid #575757;*/
+  background-image: url('http://www.iconsdb.com/icons/download/royal-blue/circle-dashed-4-512.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: none;
+}
+.ticBox:hover {
+  cursor: pointer;
+}
+button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  margin-top: 15px;
+  font-size: 15px;
+  background-color: #fff;
+  color: navy;
+  border: 2px solid navy;
+  padding: 10px 25px 10px 25px;
+}
+button:hover {
+  cursor: pointer;
+  background-color: navy; /* Green */
+  color: white;
+  border: 2px solid navy;
+}
+
+.grid {
+  height: 400px;
+  width: 384.5px;
+  position: relative;
+  margin: -449px 0px;
+}
+.top {
+  width: 5px;
+  height: 384px;
+  position: absolute;
+  background-color: black;
+}
+.bottom {
+  width: 386px;
+  height: 5px;
+  position: absolute;
+  background-color: black;
+}
+.barOne {
+  margin-left: 125.5px;
+}
+.barTwo {
+  margin-left: 255.5px
+}
+.barThree {
+  margin-top: 124.5px
+}
+.barFour {
+  margin-top: 254.5px
 }

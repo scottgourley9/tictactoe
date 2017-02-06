@@ -1,7 +1,25 @@
-nav {
+body {
+  font-family: sans-serif;
+  color: #575757;
+  text-align: center;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
   align-items: center;
-  text-decoration: none;
-  height: 10vh;
+  padding-top: 10vh;
+  background-color: lightblue;
+}
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+h2 {
+  font-size: 20px;
+  text-align: center;
+}
+p {
+  font-size: 15px;
+  line-height: 125%;
+  width: 80%;
 }
