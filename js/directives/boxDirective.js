@@ -164,6 +164,19 @@ angular.module('ticTacToe').directive('boxDirective', function(){
               return
             }
           }
+          var possibleTwo = [3, 7]
+          for(var j = 0; j < possibleTwo.length; j++){
+            if($scope.available.indexOf(possibleTwo[j]) !== -1){
+              $('[boxnum=' + possibleTwo[j] + ']').css({'display': 'none'})
+              $('[cover2=' + possibleTwo[j] + ']').css({'display': 'inherit'})
+              $scope.computerMoves.push(possibleTwo[j])
+              $scope.checkForWinnerComputer($scope.computerMoves)
+              $scope.available.splice($scope.available.indexOf(possibleTwo[j]), 1)
+                 var obj = $scope.checkForWinner($scope.computerMoves)
+                 $scope.nextMove = obj.two
+              return
+            }
+          }
         }
       }
     }
